@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Security Incident Mapping (SIM)</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,Helvetica,sans-serif;
+}
+
+body{
+background:#f4f6f9;
+color:#333;
+}
+
+header{
+background:#003366;
+color:white;
+padding:20px;
+text-align:center;
+}
+
+nav{
+background:#0055aa;
+padding:15px;
+text-align:center;
+}
+
+nav button{
+background:white;
+color:#003366;
+border:none;
+padding:10px 20px;
+margin:5px;
+cursor:pointer;
+font-weight:bold;
+border-radius:5px;
+}
+
+nav button:hover{
+background:#ffd700;
+}
+
+.page{
+display:none;
+padding:30px;
+}
+
+.active{
+display:block;
+}
+
+.container{
+width:90%;
+max-width:1000px;
+margin:auto;
+background:white;
+padding:25px;
+border-radius:10px;
+box-shadow:0 0 10px rgba(0,0,0,.15);
+}
+
+.hero{
+text-align:center;
+padding:40px;
+}
+
+.hero h2{
+color:#003366;
+margin-bottom:20px;
+}
+
+.hero p{
+line-height:1.8;
+margin-bottom:25px;
+}
+
+.features{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+margin-top:30px;
+}
+
+.card{
+background:#ffffff;
+padding:20px;
+border-radius:8px;
+box-shadow:0 0 8px rgba(0,0,0,.1);
+text-align:center;
+}
+
+.card h3{
+margin-bottom:15px;
+color:#003366;
+}
+
+input,
+select,
+textarea{
+width:100%;
+padding:12px;
+margin-top:8px;
+margin-bottom:20px;
+border:1px solid #ccc;
+border-radius:5px;
+}
+
+button.submitBtn{
+background:#007BFF;
+color:white;
+padding:12px 25px;
+border:none;
+border-radius:5px;
+cursor:pointer;
+}
+
+button.submitBtn:hover{
+background:#0056b3;
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+margin-top:20px;
+}
+
+table th{
+background:#003366;
+color:white;
+padding:12px;
+}
+
+table td{
+padding:10px;
+border:1px solid #ddd;
+text-align:center;
+}
+
+footer{
+margin-top:40px;
+padding:20px;
+background:#003366;
+color:white;
+text-align:center;
+}
+
+@media(max-width:768px){
+
+nav button{
+display:block;
+width:90%;
+margin:10px auto;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<h1>Security Incident Mapping (SIM)</h1>
+
+<p>Software Engineering Project</p>
+
+</header>
+
+<nav>
+
+<button onclick="showPage('home')">Home</button>
+
+<button onclick="showPage('login')">Login</button>
+
+<button onclick="showPage('report')">Report Incident</button>
+
+<button onclick="showPage('dashboard')">Dashboard</button>
+
+<button onclick="showPage('contact')">Emergency Contacts</button>
+
+</nav>
+
+<!-- HOME PAGE -->
+
+<section id="home" class="page active">
+
+<div class="container">
+
+<div class="hero">
+
+<h2>Welcome to Security Incident Mapping (SIM)</h2>
+
+<p>
+
+Security Incident Mapping (SIM) is a web application developed to
+enable students, staff, landlords and security officers to report,
+monitor and manage security incidents occurring within and around
+the university environment.
+
+</p>
+
+</div>
+
+<div class="features">
+
+<div class="card">
+
+<h3>🚨 Incident Reporting</h3>
+
+<p>
+
+Quickly report theft, robbery, assault and other incidents.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>📊 Dashboard</h3>
+
+<p>
+
+Monitor all reported incidents from one place.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>🛡 Campus Security</h3>
+
+<p>
+
+Improve campus safety through digital reporting.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>📞 Emergency Contacts</h3>
+
+<p>
+
+Access important emergency numbers instantly.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- LOGIN PAGE -->
+
+<section id="login" class="page">
+
+<div class="container">
+
+<h2>User Login</h2>
+
+<form>
+
+<label>Email</label>
+
+<input
+type="email"
+placeholder="Enter Email">
+
+<label>Password</label>
+
+<input
+type="password"
+placeholder="Enter Password">
+
+<button
+type="button"
+class="submitBtn"
+onclick="showPage('dashboard')">
+
+Login
+
+</button>
+
+</form>
+
+</div>
+
+</section>
+<!-- REPORT INCIDENT PAGE -->
+
+<section id="report" class="page">
+
+<div class="container">
+
+<h2>Report Security Incident</h2>
+
+<form id="incidentForm">
+
+<label>Full Name</label>
+
+<input type="text" id="fullname" required>
+
+<label>Email Address</label>
+
+<input type="email" id="email" required>
+
+<label>Phone Number</label>
+
+<input type="tel" id="phone" required>
+
+<label>Category</label>
+
+<select id="category" required>
+
+<option value="">Select</option>
+
+<option>Student</option>
+
+<option>Staff</option>
+
+<option>Landlord</option>
+
+</select>
+
+<label>Incident Type</label>
+
+<select id="incidentType" required>
+
+<option value="">Select</option>
+
+<option>Theft</option>
+
+<option>Robbery</option>
+
+<option>Assault</option>
+
+<option>Kidnapping</option>
+
+<option>Harassment</option>
+
+<option>Cultism</option>
+
+<option>Vandalism</option>
+
+<option>Other</option>
+
+</select>
+
+<label>Date</label>
+
+<input type="date" id="date" required>
+
+<label>Time</label>
+
+<input type="time" id="time" required>
+
+<label>Location</label>
+
+<input type="text" id="location" required>
+
+<label>Description</label>
+
+<textarea id="description" rows="6" required></textarea>
+
+<label>Priority</label>
+
+<select id="priority">
+
+<option>Low</option>
+
+<option>Medium</option>
+
+<option>High</option>
+
+<option>Critical</option>
+
+</select>
+
+<button class="submitBtn" type="submit">
+
+Submit Report
+
+</button>
+
+</form>
+
+</div>
+
+</section>
+
+<!-- DASHBOARD -->
+
+<section id="dashboard" class="page">
+
+<div class="container">
+
+<h2>Incident Dashboard</h2>
+
+<div class="features">
+
+<div class="card">
+
+<h3>Total Incidents</h3>
+
+<h2 id="totalReports">0</h2>
+
+</div>
+
+<div class="card">
+
+<h3>Pending Cases</h3>
+
+<h2 id="pendingReports">0</h2>
+
+</div>
+
+<div class="card">
+
+<h3>System Status</h3>
+
+<h2>Active</h2>
+
+</div>
+
+</div>
+
+<h2 style="margin-top:30px;">Reported Incidents</h2>
+
+<table id="reportTable">
+
+<tr>
+
+<th>Date</th>
+
+<th>Incident</th>
+
+<th>Location</th>
+
+<th>Priority</th>
+
+<th>Status</th>
+
+</tr>
+
+</table>
+
+</div>
+
+</section>
+
+<!-- CONTACT PAGE -->
+
+<section id="contact" class="page">
+
+<div class="container">
+
+<h2>Emergency Contacts</h2>
+
+<table>
+
+<tr>
+
+<th>Department</th>
+
+<th>Phone</th>
+
+</tr>
+
+<tr>
+
+<td>Campus Security</td>
+
+<td>0803-123-4567</td>
+
+</tr>
+
+<tr>
+
+<td>Medical Centre</td>
+
+<td>0805-987-6543</td>
+
+</tr>
+
+<tr>
+
+<td>Nigeria Police</td>
+
+<td>199</td>
+
+</tr>
+
+<tr>
+
+<td>Fire Service</td>
+
+<td>112</td>
+
+</tr>
+
+</table>
+
+</div>
+
+</section>
+<script>
+
+function showPage(page){
+
+let pages=document.querySelectorAll(".page");
+
+pages.forEach(function(p){
+
+p.classList.remove("active");
+
+});
+
+document.getElementById(page).classList.add("active");
+
+}
+
+document.getElementById("incidentForm").addEventListener("submit",function(e){
+
+e.preventDefault();
+
+let report={
+
+date:document.getElementById("date").value,
+
+type:document.getElementById("incidentType").value,
+
+location:document.getElementById("location").value,
+
+priority:document.getElementById("priority").value,
+
+status:"Pending"
+
+};
+
+let reports=JSON.parse(localStorage.getItem("SIMReports"))||[];
+
+reports.push(report);
+
+localStorage.setItem("SIMReports",JSON.stringify(reports));
+
+alert("Incident Report Submitted Successfully!");
+
+this.reset();
+
+loadReports();
+
+showPage("dashboard");
+
+});
+
+function loadReports(){
+
+let table=document.getElementById("reportTable");
+
+table.innerHTML=`
+
+<tr>
+
+<th>Date</th>
+
+<th>Incident</th>
+
+<th>Location</th>
+
+<th>Priority</th>
+
+<th>Status</th>
+
+</tr>
+
+`;
+
+let reports=JSON.parse(localStorage.getItem("SIMReports"))||[];
+
+document.getElementById("totalReports").innerHTML=reports.length;
+
+document.getElementById("pendingReports").innerHTML=reports.length;
+
+reports.forEach(function(r){
+
+table.innerHTML+=`
+
+<tr>
+
+<td>${r.date}</td>
+
+<td>${r.type}</td>
+
+<td>${r.location}</td>
+
+<td>${r.priority}</td>
+
+<td>${r.status}</td>
+
+</tr>
+
+`;
+
+});
+
+}
+
+window.onload=function(){
+
+loadReports();
+
+};
+
+</script>
+
+<footer>
+
+<h3>Security Incident Mapping (SIM)</h3>
+
+<p>
+
+Software Engineering Project (AAUA SEN 202)
+
+</p>
+
+<p>
+
+Designed by
+
+<strong>
+
+yasere okikiola Patrick 
+
+</strong>
+
+</p>
+
+<p>
+
+Matric Number: 241201208
+
+</p>
+
+<p>
+
+© 2026 All Rights Reserved
+
+</p>
+
+</footer>
+
+</body>
+
+</html>
